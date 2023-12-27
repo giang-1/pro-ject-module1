@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h1>trang quản lý kho hàng</h1>
+            <div>
+                <label for="timkiem">tìm kiếm mặt hàng</label>
+                <input type="text" name="timkiem" id="timkiem" oninput="searchProduct()">
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>mã số</th>
+                    <th>tên bánh</th>
+                    <th>giá</th>
+                    <th>số lượng còn lại</th>
+                    <th>nhập, xuất hàng</th>
+                    <th colspan="2">tổng nhập, xuất hàng</th>
+
+                </tr>
+            </thead>
+            <tbody id="listproduct">
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="/script.js"></script>
+</body>
+</html>
