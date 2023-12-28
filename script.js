@@ -18,6 +18,7 @@ let a = 0;
 let b = 0;
 let c = 0;
 
+
 for (i = 0; i < warehouse.length; i++) {
 
     a += warehouse[i].quantity
@@ -65,6 +66,32 @@ function displayProducts(warehouse) {
 }
 
 displayProducts(warehouse);
+class History{
+    constructor(date,ten,thuoctinh,soluong){
+        this.date = date;
+        this.ten = ten;
+        this.thuoctinh = thuoctinh;
+        this.soluong = soluong;
+    }
+}
+let history = []
+function displayHistory(){
+    let showHistory = document.getElementById('history');
+    showHistory.innerHTML = '';
+    showHistory.innerHTML = '<tr>';
+    for (let i = 0; i < history.length; i++) {
+        const productHistory = history[i];
+        showHistory.innerHTML += `
+        <td class="text-center" >${productHistory.date}</td>
+        <td class="text-left">${productHistory.ten}</td>
+        <td class="text-right">${productHistory.thuoctinh}</td>
+        <td class="text-right">${productHistory.soluong} cái</td>`
+
+    }
+    productListElement.innerHTML += '</tr>'
+    
+}
+displayHistory()
 
 function takeDelivery(index) {
     let productDelivery = parseInt(prompt("bạn muốn xuất bao nhiêu:"))
@@ -76,8 +103,15 @@ function takeDelivery(index) {
         b += productDelivery
         a -= productDelivery
     }
+    let date = 0;
+    let ten = warehouse[index].name
+    let thuoctinh = "xuất"
+    let soluong = productDelivery
+    let history1 = new History(date,ten,thuoctinh,soluong);
+    history.push(history1)
 
     displayProducts(warehouse)
+    displayHistory()
 
 
 }
@@ -93,8 +127,15 @@ function takeNhap(index) {
         alert('số lượng bạn nhập quá nhiều:')
 
     }
+    let date = 0;
+    let ten = warehouse[index].name
+    let thuoctinh = "nhập"
+    let soluong = productNhap
+    let history1 = new History(date,ten,thuoctinh,soluong);
+    history.push(history1)
 
     displayProducts(warehouse)
+    displayHistory()
 
 }
 function searchProduct(){
@@ -126,6 +167,3 @@ function searchProduct(){
     // warehouse2.delivery = b;
     // warehouse2.nhap = c;
     // displayProducts()}
-
-
-

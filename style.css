@@ -1,5 +1,63 @@
-table,tr,td {
-    border: 1px solid rgb(54, 159, 169);
+
+.content{
+    width: 100%;
+    background-color:none;
+    padding: 25px;
+    border-radius: 0px;
+
+}
+.style-form{
+    color: #1ae71a;
+    padding-left: 15px;
+    opacity: 0.8;
+}
+.container{
+    background-color:#f5f4f4;
+    padding: 50px;
+    padding-top: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 200px;
+   
+    
+}
+#timkiem{
+    width: 300px;
+    height: 30px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+
+}
+h1{
+    font-size: 50px;
+    font-style:oblique;
+    color: rgb(19, 232, 218);
+
+    
+}
+tr{
+    color: #562a93;
+}
+tr th{
+    color: #000;
+    font-size: 25px;
+}
+.full-display{
+    background-color:#f5f4f4;
+}
+
+
+
+
+
+
+table,td{
+    border: 1px solid rgb(5, 9, 10);
+}
+table{
+    width: 100%;
+    background-color: aliceblue;
+    border-width: 5px;
 }
 
 
