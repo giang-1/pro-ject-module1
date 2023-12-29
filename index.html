@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,27 @@
 <body class="full-display">
     <div class="container">
         <div>
+            <div class="cf-title-02 cf-title-alt-two">
+                <h3>project-module1<br />
+                    <span>nguyễn hữu hoàng giang</span><br />
+                  </h3>
+                </div>
+        </div><br>
+        <div>
             <div class="content">
-                <h1>trang quản lý kho hàng</h1>
+                <h1><u>Trang quản lý kho hàng</u></h1>
             </div>
                 <div class="style-form">
-                    <label for="timkiem"><h2>tìm kiếm mặt hàng:</h2></label>
-                    <input type="text" name="timkiem" id="timkiem" oninput="searchProduct()">
+                    <label for="timkiem"><h2>Tìm kiếm mặt hàng:</h2></label>
+                    <!-- <input type="text" name="timkiem" id="timkiem"  oninput="searchProduct()"> -->
+                    <style> input[type=text] {  width: 130px;  box-sizing: border-box;
+                          border: 2px solid #ccc;  border-radius: 4px;
+                          font-size: 16px;  background-color: white;
+                          background-image: url('searchicon.png');
+                           background-position: 10px 10px; 
+                          background-repeat: no-repeat;  padding: 12px 20px 12px 40px; 
+                         -webkit-transition: width 0.4s ease-in-out;  transition: width 0.4s ease-in-out;}input[type=text]:focus {  width: 100%;}</style></head><body><form> 
+                         <input type="text" name="search" id="timkiem" oninput="searchProduct()" placeholder="Search..">
                 </div>
             </div>
             
@@ -33,7 +49,7 @@
                 <tbody id="listproduct">
                 </tbody>
             </table>
-            <h1>lịch sử</h1>
+            <h1 id="chinhsua"><u>Lịch sử</u></h1>
             <table class="thietke">
                 <thead>
                     <tr>
