@@ -37,7 +37,14 @@
     background-image: url(/anh/83a54210ea1ef00f88280c9778d61d90.jpg!w700wp);
     padding: 25px;
     border-radius: 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
+}
+.content2{
+    backdrop-filter: blur(1px);
+    width: 55%;
 }
 .style-form{
     color: #bd1f5e;
@@ -66,14 +73,21 @@
 #chinhsua{
     font-size: 40px;
 }
+h2{
+    color: #bd1f5e;
+    font-style:oblique;
+}
 h1{
     font-size: 60px;
-    font-style:italic;
-    color: rgb(33, 213, 16);
+    font-style:oblique;
+    color: rgb(223, 74, 10);
     font-weight: 800;
     font-family: 'Times New Roman', Times, serif;
+    color: rgb(222, 104, 8);
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 
 }
+
 tr{
     color: #5b1dbe;
 }

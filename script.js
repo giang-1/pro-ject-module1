@@ -20,7 +20,7 @@ let c = 0;
 let time = new Date()
 let year = time.getFullYear()
 let month = time.getMonth() + 1
-let day = time.getDay()
+let day = time.getDay() + 24
 let gio = time.getHours()
 let phut = time.getMinutes()
 
@@ -64,7 +64,7 @@ function displayProducts(warehouse) {
     productListElement.innerHTML += `
         <tr>
             <td class="text-left" colspan="3">Tổng</td>
-            <td class="text-right" colspan="2">tổng số lượng${a}</td> 
+            <td class="text-left" colspan="2">tổng số lượng${a}</td> 
             <td class="text-right">tổng xuât =${b}</td>
             <td class="text-right">tổng nhập =${c}</td>
         </tr>
@@ -109,7 +109,7 @@ function takeDelivery(index) {
         b += productDelivery
         a -= productDelivery
     }
-    let date = `${gio}giờ ${phut}phút(${day + 24}/${month}/${year})`
+    let date = `${gio}giờ ${phut}phút(${day}/${month}/${year})`
     let ten = warehouse[index].name
     let thuoctinh = "xuất"
     let soluong = productDelivery
@@ -133,7 +133,7 @@ function takeNhap(index) {
         alert('số lượng bạn nhập quá nhiều:')
 
     }
-    let date =`${gio}giờ ${phut}phút(${day + 24}/${month}/${year})`
+    let date =`${gio}giờ ${phut}phút(${day}/${month}/${year})`
     let ten = warehouse[index].name
     let thuoctinh = "nhập"
     let soluong = productNhap
