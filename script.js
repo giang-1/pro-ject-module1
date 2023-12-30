@@ -46,7 +46,7 @@ function displayProducts(warehouse) {
         productListElement.innerHTML += `
             <td class="text-center" >${i + 1}</td>
             <td class="text-left">${product.name}</td>
-            <td class="text-right">${product.price} đồng</td>
+            <td class="text-right"> ${product.price} đồng<button <i class="fa-solid fa-pen-to-square" onclick = "editProduct(${i})"></i>></button></td>
             <td class="text-right">${product.quantity} cái</td>
             <td>
                 <button type="button" class="btn-edit" onclick="takeDelivery(${i})"><i <i class="fa-solid fa-truck"></i></i>xuất hàng</button>
@@ -65,10 +65,11 @@ function displayProducts(warehouse) {
         <tr>
             <td class="text-left" colspan="3">Tổng</td>
             <td class="text-left" colspan="2">tổng số lượng${a}</td> 
-            <td class="text-right">tổng xuât =${b}</td>
-            <td class="text-right">tổng nhập =${c}</td>
+            <td class="text-left">tổng =${b}</td>
+            <td class="text-left">tổng =${c}</td>
         </tr>
-    `;
+    `
+    productListElement.innerHTML += `<tr class="text-right"><button onclick = "addProduct()" <i class="fa-solid fa-plus"></i>add</button></tr>`;
 }
 
 displayProducts(warehouse);
@@ -80,6 +81,7 @@ class History{
         this.soluong = soluong;
     }
 }
+//in khối lịch sủ
 let history = []
 function displayHistory(){
     let showHistory = document.getElementById('history');
@@ -98,7 +100,7 @@ function displayHistory(){
     
 }
 displayHistory()
-
+//hàm xuất
 function takeDelivery(index) {
     let productDelivery = parseInt(prompt("bạn muốn xuất bao nhiêu:"))
     if (productDelivery > (warehouse[index].quantity)) {
@@ -121,6 +123,7 @@ function takeDelivery(index) {
 
 
 }
+//hàm nhập
 function takeNhap(index) {
     let productNhap = parseInt(prompt('bạn muốn nhập bao nhiêu:'))
     if ((productNhap + warehouse[index].quantity) <= 10000) {
@@ -144,6 +147,7 @@ function takeNhap(index) {
     displayHistory()
 
 }
+//hàm search
 function searchProduct(){
     let searchKeyword = document.getElementById('timkiem').value;
 
@@ -156,6 +160,25 @@ function searchProduct(){
         }
     }
     displayProducts(filterList)
+}
+
+//edit
+function editProduct(index){
+    let changePrice = prompt("nhập số tiền bạn muốn đổi");
+    warehouse[index].price = changePrice;
+    displayProducts(warehouse)
+}
+function addProduct(){
+    let addwarehouse = new Warehouse
+    addwarehouse.id = warehouse.length + 1
+    addwarehouse.name = prompt("nhập tên")
+    addwarehouse.price = prompt("nhập giá")
+    addwarehouse.quantity = parseInt(prompt("nhập số lượng"))
+    addwarehouse.delivery = 0;
+    addwarehouse.nhap = 0;
+    a += addwarehouse.quantity
+    warehouse.push(addwarehouse)
+    displayProducts(warehouse)
 }
 
 // for (i = 0; i < warehouse.length; i++) {
