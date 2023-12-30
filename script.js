@@ -69,7 +69,7 @@ function displayProducts(warehouse) {
             <td class="text-left">tổng =${c}</td>
         </tr>
     `
-    productListElement.innerHTML += `<tr class="text-right"><button onclick = "addProduct()" <i class="fa-solid fa-plus"></i>add</button></tr>`;
+    productListElement.innerHTML += `<tr><button  style = "background-color: #0d6efd" onclick = "addProduct()" <i class="fa-solid fa-circle-plus"></i>add</button></tr>`;
 }
 
 displayProducts(warehouse);
@@ -176,9 +176,15 @@ function addProduct(){
     addwarehouse.quantity = parseInt(prompt("nhập số lượng"))
     addwarehouse.delivery = 0;
     addwarehouse.nhap = 0;
-    a += addwarehouse.quantity
-    warehouse.push(addwarehouse)
-    displayProducts(warehouse)
+    if(addwarehouse.name && addwarehouse.quantity){
+        a += addwarehouse.quantity
+        warehouse.push(addwarehouse)
+        displayProducts(warehouse)
+    }else{
+        alert('điền cho đủ')
+        displayProducts(warehouse)
+    }
+
 }
 
 // for (i = 0; i < warehouse.length; i++) {
