@@ -103,20 +103,22 @@ displayHistory()
 //hàm xuất
 function takeDelivery(index) {
     let productDelivery = parseInt(prompt("bạn muốn xuất bao nhiêu:"))
-    if (productDelivery > (warehouse[index].quantity)) {
-        alert('kho hàng bạn không đủ số lượng')
-    } else {
-        warehouse[index].quantity = warehouse[index].quantity - productDelivery
-        warehouse[index].delivery = warehouse[index].delivery + productDelivery
-        b += productDelivery
-        a -= productDelivery
+    if(productDelivery){
+            if (productDelivery > (warehouse[index].quantity)) {
+                alert('kho hàng bạn không đủ số lượng')
+            } else {
+                warehouse[index].quantity = warehouse[index].quantity - productDelivery
+                warehouse[index].delivery = warehouse[index].delivery + productDelivery
+                b += productDelivery
+                a -= productDelivery
+            }
+        let date = `${gio}giờ ${phut}phút(${day}/${month}/${year})`
+        let ten = warehouse[index].name
+        let thuoctinh = "xuất"
+        let soluong = productDelivery
+        let history1 = new History(date,ten,thuoctinh,soluong);
+        history.push(history1)
     }
-    let date = `${gio}giờ ${phut}phút(${day}/${month}/${year})`
-    let ten = warehouse[index].name
-    let thuoctinh = "xuất"
-    let soluong = productDelivery
-    let history1 = new History(date,ten,thuoctinh,soluong);
-    history.push(history1)
 
     displayProducts(warehouse)
     displayHistory()
@@ -126,35 +128,37 @@ function takeDelivery(index) {
 //hàm nhập
 function takeNhap(index) {
     let productNhap = parseInt(prompt('bạn muốn nhập bao nhiêu:'))
-    if ((productNhap + warehouse[index].quantity) <= 10000) {
-        warehouse[index].quantity += productNhap
-        warehouse[index].nhap += productNhap
-        a += productNhap
-        c += productNhap
-
-    } else {
-        alert('số lượng bạn nhập quá nhiều:')
-
+    if(productNhap){
+        if ((productNhap + warehouse[index].quantity) <= 10000 && productNhap 
+        >= 0) {
+            warehouse[index].quantity += productNhap
+            warehouse[index].nhap += productNhap
+            a += productNhap
+            c += productNhap
+            let date =`${gio}giờ ${phut}phút(${day}/${month}/${year})`
+            let ten = warehouse[index].name
+            let thuoctinh = "nhập"
+            let soluong = productNhap
+            let history1 = new History(date,ten,thuoctinh,soluong);
+            history.push(history1)
+    
+        } else {
+            alert('số lượng bạn nhập không đúng:')
+    
+        }
     }
-    let date =`${gio}giờ ${phut}phút(${day}/${month}/${year})`
-    let ten = warehouse[index].name
-    let thuoctinh = "nhập"
-    let soluong = productNhap
-    let history1 = new History(date,ten,thuoctinh,soluong);
-    history.push(history1)
-
     displayProducts(warehouse)
     displayHistory()
-
 }
 //hàm search
 function searchProduct(){
     let searchKeyword = document.getElementById('timkiem').value;
+    searchKeyword = searchKeyword.toLowerCase();
 
     let filterList = [];
 
     for(i = 0; i < warehouse.length;i++ ){
-        const productName = warehouse[i].name;
+        const productName = warehouse[i].name.toLowerCase();
         if(productName.includes(searchKeyword)){
             filterList.push(warehouse[i]);
         }
@@ -164,15 +168,17 @@ function searchProduct(){
 
 //edit
 function editProduct(index){
-    let changePrice = prompt("nhập số tiền bạn muốn đổi");
+    let changePrice = parseInt(prompt("nhập số tiền bạn muốn đổi"));
+    if(changePrice){
     warehouse[index].price = changePrice;
     displayProducts(warehouse)
+    }
 }
 function addProduct(){
     let addwarehouse = new Warehouse
     addwarehouse.id = warehouse.length + 1
     addwarehouse.name = prompt("nhập tên")
-    addwarehouse.price = prompt("nhập giá")
+    addwarehouse.price = parseInt(prompt("nhập giá"))
     addwarehouse.quantity = parseInt(prompt("nhập số lượng"))
     addwarehouse.delivery = 0;
     addwarehouse.nhap = 0;
