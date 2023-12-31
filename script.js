@@ -9,10 +9,10 @@ class Warehouse {
     }
 }
 let warehouse = [
-    new Warehouse(1, "bánh tráng vàng", 90000, 4000, 0, 0),
-    new Warehouse(2, "bánh tráng trứng", 95000, 3000, 0, 0),
-    new Warehouse(3, "bánh tráng gỏi", 180000, 2000, 0, 0),
-    new Warehouse(4, "bánh tráng ram", 100000, 5000, 0, 0)
+    new Warehouse(1, "bánh tráng vàng", 900, 4000, 0, 0),
+    new Warehouse(2, "bánh tráng trứng", 950, 3000, 0, 0),
+    new Warehouse(3, "bánh tráng gỏi", 1800, 2000, 0, 0),
+    new Warehouse(4, "bánh tráng ram", 1000, 5000, 0, 0)
 ]
 let a = 0;
 let b = 0;
@@ -129,8 +129,7 @@ function takeDelivery(index) {
 function takeNhap(index) {
     let productNhap = parseInt(prompt('bạn muốn nhập bao nhiêu:'))
     if(productNhap){
-        if ((productNhap + warehouse[index].quantity) <= 10000 && productNhap 
-        >= 0) {
+        if ( productNhap >= 0 && (productNhap + warehouse[index].quantity) <= 10000) {
             warehouse[index].quantity += productNhap
             warehouse[index].nhap += productNhap
             a += productNhap
@@ -142,10 +141,12 @@ function takeNhap(index) {
             let history1 = new History(date,ten,thuoctinh,soluong);
             history.push(history1)
     
-        } else {
-            alert('số lượng bạn nhập không đúng:')
+        } else if((productNhap + warehouse[index].quantity) >= 10000) {
+            alert('số lượng tối đa 1 mặt hàng là 10000!')
     
         }
+    }else{
+        alert('bạn nhập không đúng!')
     }
     displayProducts(warehouse)
     displayHistory()
@@ -172,6 +173,8 @@ function editProduct(index){
     if(changePrice){
     warehouse[index].price = changePrice;
     displayProducts(warehouse)
+    }else{
+        alert('bạn nhập không đúng !')
     }
 }
 function addProduct(){
