@@ -20,7 +20,7 @@ let c = 0;
 let time = new Date()
 let year = time.getFullYear()
 let month = time.getMonth() + 1
-let day = time.getDay() + 24
+let day = time.getDay()
 let gio = time.getHours()
 let phut = time.getMinutes()
 
@@ -111,13 +111,14 @@ function takeDelivery(index) {
                 warehouse[index].delivery = warehouse[index].delivery + productDelivery
                 b += productDelivery
                 a -= productDelivery
+                let date = `${gio}giờ${phut}phút(${day}/${month}/${year})`
+                let ten = warehouse[index].name
+                let thuoctinh = "xuất"
+                let soluong = productDelivery
+                let history1 = new History(date,ten,thuoctinh,soluong);
+                history.push(history1)
             }
-        let date = `${gio}giờ ${phut}phút(${day}/${month}/${year})`
-        let ten = warehouse[index].name
-        let thuoctinh = "xuất"
-        let soluong = productDelivery
-        let history1 = new History(date,ten,thuoctinh,soluong);
-        history.push(history1)
+
     }
 
     displayProducts(warehouse)
@@ -134,7 +135,7 @@ function takeNhap(index) {
             warehouse[index].nhap += productNhap
             a += productNhap
             c += productNhap
-            let date =`${gio}giờ ${phut}phút(${day}/${month}/${year})`
+            let date =`${gio}giờ${phut}phút(${day}/${month}/${year})`
             let ten = warehouse[index].name
             let thuoctinh = "nhập"
             let soluong = productNhap
