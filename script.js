@@ -64,7 +64,7 @@ function displayProducts(warehouse) {
     productListElement.innerHTML += `
         <tr>
             <td class="text-left" colspan="3">Tổng</td>
-            <td class="text-left" colspan="2">tổng số lượng${a}</td> 
+            <td class="text-left" colspan="2">tổng số lượng:${a}</td> 
             <td class="text-left">tổng =${b}</td>
             <td class="text-left">tổng =${c}</td>
         </tr>
@@ -181,17 +181,17 @@ function editProduct(index){
 function addProduct(){
     let addwarehouse = new Warehouse
     addwarehouse.id = warehouse.length + 1
-    addwarehouse.name = prompt("nhập tên")
-    addwarehouse.price = parseInt(prompt("nhập giá"))
+    addwarehouse.name = prompt("nhập tên cho sản phẩm mới")
+    addwarehouse.price = parseInt(prompt("nhập giá sản phẩm mới"))
     addwarehouse.quantity = parseInt(prompt("nhập số lượng"))
     addwarehouse.delivery = 0;
     addwarehouse.nhap = 0;
-    if(addwarehouse.name && addwarehouse.quantity){
+    if(addwarehouse.name && addwarehouse.quantity && addwarehouse.price){
         a += addwarehouse.quantity
         warehouse.push(addwarehouse)
         displayProducts(warehouse)
     }else{
-        alert('điền cho đủ')
+        alert('vui lòng điền đầy đủ thông tin!')
         displayProducts(warehouse)
     }
 
