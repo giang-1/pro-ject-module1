@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -7,69 +8,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body class="full-display">
     <div class="container">
         <div>
             <div class="cf-title-02 cf-title-alt-two">
                 <h3>project-module1<br />
                     <span>nguyễn hữu hoàng giang</span><br />
-                  </h3>
-                </div>
+                </h3>
+            </div>
         </div><br>
         <div>
             <div class="content">
-             <div class="content2"><h1><u>Trang quản lý kho hàng</u></h1></div>   
-            </div>
-                <div class="style-form">
-                    <label for="timkiem"><h2>Tìm kiếm mặt hàng:</h2></label>
-                    <!-- <input type="text" name="timkiem" id="timkiem"  oninput="searchProduct()"> -->
-                    <style> input[type=text] {  width: 130px;  box-sizing: border-box;
-                          border: 2px solid #ccc;  border-radius: 4px;
-                          font-size: 16px;  background-color: white;
-                          background-image: url('searchicon.png');
-                           background-position: 10px 10px; 
-                          background-repeat: no-repeat;  padding: 12px 20px 12px 40px; 
-                         -webkit-transition: width 0.4s ease-in-out;  transition: width 0.4s ease-in-out;}input[type=text]:focus {  width: 100%;}</style></head><body><form> 
-                         <input type="text" name="search" id="timkiem" oninput="searchProduct()" placeholder="Search..">
+                <div class="content2">
+                    <h1><u>Trang quản lý kho hàng</u></h1>
                 </div>
             </div>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>stt</th>
-                        <th>tên bánh</th>
-                        <th>giá</th>
-                        <th>số lượng còn lại</th>
-                        <th>nhập, xuất hàng</th>
-                        <th colspan="2">tổng xuất, nhập hàng</th>
-    
-                    </tr>
-                </thead>
-                <tbody id="listproduct">
-                </tbody>
-            </table>
-            <h2 id="chinhsua"><u><i>Lịch sử</i></u></h2>
-            <table class="thietke">
-                <thead>
-                    <tr>
-                        <th>thời gian</th>
-                        <th>tên </th>
-                        <th>xuất,nhập</th>
-                        <th>số lượng</th>
-                    </tr>
-                </thead>
-                <tbody id="history">
-    
-                </tbody>
-    
-    
-            </table>
+            <div class="style-form">
+                <label for="timkiem">
+                    <h2>Tìm kiếm mặt hàng:</h2>
+                </label>
+                <!-- <input type="text" name="timkiem" id="timkiem"  oninput="searchProduct()"> -->
+                <style>
+                    input[type=text] {
+                        width: 130px;
+                        box-sizing: border-box;
+                        border: 2px solid #ccc;
+                        border-radius: 4px;
+                        font-size: 16px;
+                        background-color: white;
+                        background-image: url('searchicon.png');
+                        background-position: 10px 10px;
+                        background-repeat: no-repeat;
+                        padding: 12px 20px 12px 40px;
+                        -webkit-transition: width 0.4s ease-in-out;
+                        transition: width 0.4s ease-in-out;
+                    }
+
+                    input[type=text]:focus {
+                        width: 100%;
+                    }
+                </style>
+                </head>
+
+                <body>
+                    <form>
+                        <input type="text" name="search" id="timkiem" oninput="searchProduct()" placeholder="Search..">
+            </div>
         </div>
 
+        <table>
+            <thead>
+                <tr>
+                    <th>stt</th>
+                    <th>tên bánh</th>
+                    <th>giá</th>
+                    <th>số lượng còn lại</th>
+                    <th>nhập, xuất hàng</th>
+                    <th colspan="2">tổng xuất, nhập hàng</th>
+
+                </tr>
+            </thead>
+            <tbody id="listproduct">
+            </tbody>
+        </table>
+        <h2 id="chinhsua"><u><i>Lịch sử</i></u></h2>
+        <table class="thietke">
+            <thead>
+                <tr>
+                    <th>thời gian</th>
+                    <th>tên </th>
+                    <th>trạng thái</th>
+                    <th>số lượng</th>
+                </tr>
+            </thead>
+            <tbody id="history">
+
+            </tbody>
+
+
+        </table>
     </div>
-   
-    
+
+    </div>
+
+
     <script src="script.js"></script>
 </body>
+
 </html>
